@@ -13,7 +13,7 @@ function menu(){
       $pages['index.php']     =   "INICIO";
       $pages['seguros.php']   =   "SEGUROS";
       $pages['vehiculos.php'] =   "VEHICULOS";
-      
+      $pages['usuarios.php']  =   "USUARIOS";
    }
  
  }else{

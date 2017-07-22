@@ -76,6 +76,31 @@ function update_login($id){
     $mysql->close();
 }
 
+function get_usrs(){
+
+    $mysqli = conectar();
+    $sql    = "SELECT * FROM `usuarios`";
+    $result = $mysqli->query($sql);
+
+  //  if($result->num_row > 0){
+        // output data of each row
+        $usuarios = array();
+        while($row = $result->fetch_assoc()) {
+            if($_SESSION['usr']->get_id() != $row['id']){
+                $usr_tmp = array(
+                    'id'        =>   $row['id'],
+                    'nick'      =>   $row['nick'],
+                    'name'      =>   $row['name'],
+                    'fecha'     =>   $row['fecha'],
+                );
+                array_push($usuarios,$usr_tmp);
+            }
+        }
+   //    }
+    $mysqli->close();
+    return $usuarios;
+}
+
 function get_veh(){
     $mysqli = conectar();
     $sql = "SELECT * FROM vehiculos";
