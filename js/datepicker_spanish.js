@@ -20,7 +20,9 @@ $(function () {
     $.datepicker.setDefaults($.datepicker.regional['es']);
     $(function () {
     $("#fecha").datepicker({
-            dateFormat:'yy-mm-dd'
+            dateFormat:'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
     });
    
     });
