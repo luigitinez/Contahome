@@ -71,7 +71,7 @@
             $seguros = get_veh();
             if($seguros != 0){
                 foreach ($seguros as $key => $value) {
-                    echo "<tr>";
+                    echo "<tr class='fila'>";
                     foreach ($value as $llave => $valor) {
                         if($llave != 'id'){
                             echo "<td>";
@@ -97,7 +97,32 @@
   </div>
 </div>
 <!-- Fin Tabla-->
+<!-- Button trigger modal -->
+<!-- Boton lanzamodal-->
+
+<!-- Modal -->
+<div class="modal fade" id="itvModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titleModal"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal-->
 </body>
 </html>
 <script type="text/javascript" src="js/datepicker_spanish.js"></script>
 <script type="text/javascript" src="js/deleater.js"></script>
+<script type="text/javascript" src="js/modal.js"> </script>

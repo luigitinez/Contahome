@@ -1,7 +1,8 @@
 <?php
 function conectar(){
     //@$connect = new mysqli("mysql.hostinger.es","u102448472_autom","raybanlm","u102448472_autom");
-    $connect = new mysqli("localhost","root","","contahome");
+    //$connect = new mysqli("localhost","root","","contahome"); //PC
+    $connect = new mysqli("localhost","root","root","contahome"); //Mac OS
     if($connect->connect_errno){
        printf("<h1><span>LA CONEXIÓN CON LA BASE DE DATOS HA FALLADO: %s\n".$connect->connect_error."</span></h1>");
        exit();
@@ -139,5 +140,27 @@ function del_row($id,$table){
     }
 
   
+}
+
+function get_itv_by_reg($matricula){
+    $sql = 'SELECT * FROM ITV  AS i JOIN vehiculos AS v  ON i.id_veh = v.id WHeRE v.matricula = "'.$matricula.'"';
+    $conn = conectar();
+    $result = $mysqli->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        $itvs = array();
+        while($row = $result->fetch_assoc()) {
+            $itv_tmp = array(
+                'id'     =>   $row['id'],
+                'fecha'    =>   $row['fecha'],
+            );
+            array_push($itvs,$itv_tmp);
+        }
+    } else {
+        return 0;
+    }
+    $mysqli->close();
+    return $itvs;
 }
 ?>
